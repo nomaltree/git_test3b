@@ -15,15 +15,19 @@ public class Sort {
  static int partition(int[] a, int start, int end) {
     int value = a[end];
     int i = start - 1;
-    for (int j = start; j <= end - 1; ++j)
-        if (a[j] < value)
-            swap(a, ++i, j);
+    for (int j = start; j <= end - 1; ++j) {
+		if (a[j] < value) {
+			swap(a, ++i, j);
+		}
+	}
     swap(a, i + 1, end);
     return i + 1;
  }
 
  static void quickSort(int[] a, int start, int end) {
-     if (start >= end) return;
+     if (start >= end) {
+		return;
+	}
         int middle = partition(a, start, end);
     quickSort(a, start, middle-1);
     quickSort(a, middle+1, end);
